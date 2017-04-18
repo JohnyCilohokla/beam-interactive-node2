@@ -78,11 +78,10 @@ export class Client extends EventEmitter implements IClient {
     /**
      * Boots the connection to interactive
      */
-    public open(options: ISocketOptions): this {
+    public open(options: ISocketOptions): Promise<void> {
         this.state.reset();
         this.createSocket(options);
-        this.socket.connect();
-        return this;
+        return this.socket.connect();
     }
 
     /**

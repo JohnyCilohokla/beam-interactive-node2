@@ -1,3 +1,4 @@
+import { preFlight } from './preflight';
 import { EventEmitter } from 'events';
 import * as Url from 'url';
 
@@ -150,10 +151,10 @@ export class InteractiveSocket extends EventEmitter {
      * Open a new socket connection. By default, the socket will auto
      * connect when creating a new instance.
      */
-    public connect(): this {
+    public connect(): Promise<void> {
         if (this.state === State.Closing) {
             this.state = State.Refreshing;
-            return this;
+            return Promise.resolve();
         }
         const defaultHeaders = {
             'X-Protocol-Version': '2.0',
@@ -177,8 +178,12 @@ export class InteractiveSocket extends EventEmitter {
             this.options.queryParams['Authorization'] = `JWT ${this.options.jwt}`;
         }
         url.query = Object.assign({}, url.query, this.options.queryParams);
+        return preFlight(Url.format(url), extras.headers)
+            .then(() => this.setupSocket(Url.format(url), extras));
+    }
 
-        this.socket = new InteractiveSocket.WebSocket(Url.format(url), [], extras);
+    private setupSocket(url: string, options: IWebSocketOptions) {
+        this.socket = new InteractiveSocket.WebSocket(url, [], options);
 
         this.state = State.Connecting;
 
@@ -191,11 +196,9 @@ export class InteractiveSocket extends EventEmitter {
                 // Ignore errors on a closing socket.
                 return;
             }
-
+            console.log(err);
             this.emit('error', err);
         });
-
-        return this;
     }
 
     /**

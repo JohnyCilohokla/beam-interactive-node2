@@ -33,7 +33,8 @@ describe('socket', () => {
 
     describe('connecting', () => {
         it('connects with no auth', done => {
-            socket = new InteractiveSocket({ url }).connect();
+            socket = new InteractiveSocket({ url })
+            socket.connect();
             server.on('connection', (ws: WebSocketModule) => {
                 expect(ws.upgradeReq.url).to.equal('/');
                 expect(ws.upgradeReq.headers.authorization).to.equal(
@@ -45,7 +46,8 @@ describe('socket', () => {
         });
 
         it('connects with JWT auth', done => {
-            socket = new InteractiveSocket({ url, jwt: 'asdf!' }).connect();
+            socket = new InteractiveSocket({ url, jwt: 'asdf!' });
+            socket.connect();
             server.on('connection', (ws: WebSocketModule) => {
                 expect(ws.upgradeReq.url).to.equal('/?Authorization=JWT%20asdf!');
                 expect(ws.upgradeReq.headers.authorization).to.equal(
@@ -57,7 +59,8 @@ describe('socket', () => {
         });
 
         it('connects with an OAuth token', done => {
-            socket = new InteractiveSocket({ url, authToken: 'asdf!' }).connect();
+            socket = new InteractiveSocket({ url, authToken: 'asdf!' });
+            socket.connect();
             server.on('connection', (ws: WebSocketModule) => {
                 expect(ws.upgradeReq.url).to.equal('/');
                 expect(ws.upgradeReq.headers.authorization).to.equal('Bearer asdf!');
@@ -111,7 +114,8 @@ describe('socket', () => {
 
         beforeEach(ready => {
             awaitConnect(() => ready());
-            socket = new InteractiveSocket({ url, pingInterval: 100, replyTimeout: 50 }).connect();
+            socket = new InteractiveSocket({ url, pingInterval: 100, replyTimeout: 50 });
+            socket.connect();
             const options: ISocketOptions  = {
                 reconnectionPolicy: new ExponentialReconnectionPolicy(),
             };

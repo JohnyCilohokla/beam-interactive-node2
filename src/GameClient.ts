@@ -13,15 +13,14 @@ export class GameClient extends Client {
         super(ClientType.GameClient);
     }
 
-    public open(options: IGameClientOptions): this {
-        super.open({
+    public open(options: IGameClientOptions): Promise<void> {
+        return super.open({
             authToken: options.authToken,
             url: options.url,
             extraHeaders: {
                 'X-Interactive-Version': options.versionId,
             },
         });
-        return this;
     }
 
     public createControls(data: ISceneData): Promise<IControl[]> {
