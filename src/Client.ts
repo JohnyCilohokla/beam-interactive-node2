@@ -183,4 +183,19 @@ export class Client extends EventEmitter implements IClient {
     public ready(_: boolean): Promise<void> {
         throw new PermissionDeniedError('ready', 'Participant');
     }
+
+    /**
+     * Retrieves a control by its id within the state system.
+     */
+    public getControl(id: string) {
+        return this.state.getControl(id);
+    }
+
+    /**
+     * Retrieves a scene by its id within the state system.
+     */
+    public getScene(id: string) {
+        return this.state.getScene(id);
+    }
+
 }
