@@ -13,17 +13,21 @@ export function resolveOn(
     emitter: EventEmitter,
     event: string,
     timeout: number = 120 * 1000,
-): Promise<any> {
-    return new Promise((resolve, reject) => {
-        let resolved = false;
-        const listener = (data: any) => {
+): Promise<any> & {clear: () => void} {
+    let timer: NodeJS.Timer;
+    let resolved = false;
+    let listener: Function;
+
+    const promise = new Promise((resolve, reject) => {
+        listener = (data: any) => {
             resolved = true;
             resolve(data);
+            clearTimeout(timer);
         };
 
         emitter.once(event, listener);
 
-        setTimeout(
+        timer = setTimeout(
             () => {
                 if (!resolved) {
                     emitter.removeListener(event, listener);
@@ -33,6 +37,14 @@ export function resolveOn(
             timeout,
         );
     });
+
+    (promise as any).clear = function(){
+        if (!resolved) {
+            clearTimeout(timer);
+            emitter.removeListener(event, listener);
+        }
+    };
+    return promise as (Promise<any> & {clear: () => void});
 }
 
 /**

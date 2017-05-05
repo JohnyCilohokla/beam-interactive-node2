@@ -278,19 +278,28 @@ export class InteractiveSocket extends EventEmitter {
         // If the socket has not said hello, queue the request and return
         // the promise eventually emitted when it is sent.
         if (this.state !== SocketState.Connected) {
+            const sendPromise = resolveOn(packet, 'send');
+            const cancelPromise = resolveOn(packet, 'cancel');
             return Promise.race([
-                resolveOn(packet, 'send'),
-                resolveOn(packet, 'cancel')
+                sendPromise,
+                cancelPromise
                 .then(() => {
                     throw new CancelledError();
                 }),
-            ]);
+            ]).then((val: any) => {
+                sendPromise.clear();
+                cancelPromise.clear();
+                return val;
+            });
         }
 
         const timeout = packet.getTimeout(this.options.replyTimeout);
+        const replyPromise = resolveOn(this, `reply:${packet.id()}`, timeout);
+        const cancelPromise = resolveOn(packet, 'cancel', timeout + 1);
+        const closePromise = resolveOn(this, 'close', timeout + 1);
         const promise = Promise.race([
             // Wait for replies to that packet ID:
-            resolveOn(this, `reply:${packet.id()}`, timeout)
+            replyPromise
             .then((result: Reply) => {
                 this.queue.delete(packet);
 
@@ -305,12 +314,12 @@ export class InteractiveSocket extends EventEmitter {
                 throw err;
             }),
             // Never resolve if the consumer cancels the packets:
-            resolveOn(packet, 'cancel', timeout + 1)
+            cancelPromise
             .then(() => {
                 throw new CancelledError();
             }),
             // Re-queue packets if the socket closes:
-            resolveOn(this, 'close', timeout + 1)
+            closePromise
             .then(() => {
                 if (!this.queue.has(packet)) { // skip if we already resolved
                     return null;
@@ -319,7 +328,12 @@ export class InteractiveSocket extends EventEmitter {
                 packet.setState(PacketState.Pending);
                 return this.send(packet);
             }),
-        ]);
+        ]).then((val: any) => {
+            replyPromise.clear();
+            cancelPromise.clear();
+            closePromise.clear();
+            return val;
+        });
 
         packet.emit('send', promise);
         packet.setState(PacketState.Sending);
