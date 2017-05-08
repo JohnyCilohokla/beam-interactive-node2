@@ -1,9 +1,8 @@
 import { EventEmitter } from 'events';
 import * as Url from 'url';
 
-import { CancelledError, InteractiveError, MessageParseError } from '../errors';
+import { CancelledError, InteractiveError, MessageParseError, TimeoutError } from '../errors';
 import { IRawValues } from '../interfaces';
-import { resolveOn } from '../util';
 import { Method, Packet, PacketState, Reply } from './packets';
 import { ExponentialReconnectionPolicy, IReconnectionPolicy } from './reconnection';
 
@@ -151,7 +150,7 @@ export class InteractiveSocket extends EventEmitter {
                 return;
             }
 
-            if (this.state === SocketState.Closing || !this.options.autoReconnect) {
+            if (this.state === SocketState.Closing || !false) { //!this.options.autoReconnect
                 this.state = SocketState.Idle;
                 return;
             }
@@ -278,61 +277,99 @@ export class InteractiveSocket extends EventEmitter {
         // If the socket has not said hello, queue the request and return
         // the promise eventually emitted when it is sent.
         if (this.state !== SocketState.Connected) {
-            const sendPromise = resolveOn(packet, 'send');
-            const cancelPromise = resolveOn(packet, 'cancel');
-            return Promise.race([
-                sendPromise,
-                cancelPromise
-                .then(() => {
-                    throw new CancelledError();
-                }),
-            ]).then((val: any) => {
-                sendPromise.clear();
-                cancelPromise.clear();
-                return val;
+            return new Promise((resolve, reject) => {
+                let timer: NodeJS.Timer;
+                let onSend: Function;
+                let onCancel: Function;
+                let onClose: Function;
+                onSend = (data: any) => {
+                    clearTimeout(timer);
+                    packet.removeListener('cancel', onCancel);
+                    this.removeListener('close', onClose);
+                    resolve(data);
+                };
+                onCancel = () => {
+                    clearTimeout(timer);
+                    packet.removeListener('send', onSend);
+                    this.removeListener('close', onClose);
+                    reject(new CancelledError());
+                };
+                onClose = () => {
+                    clearTimeout(timer);
+                    packet.removeListener('send', onSend);
+                    packet.removeListener('cancel', onCancel);
+
+                    // reject(new CancelledError()); // TODO handle close
+                };
+                packet.once('send', onSend);
+                packet.once('cancel', onCancel);
+                this.once('close', onClose);
+
+                timer = setTimeout(
+                    () => {
+                        packet.removeListener('send', onSend);
+                        packet.removeListener('cancel', onCancel);
+                        this.removeListener('close', onClose);
+                        reject(new TimeoutError(`Expected to get event send ${JSON.stringify(packet)}`));
+                    },
+                    120 * 1000);
             });
         }
 
+
         const timeout = packet.getTimeout(this.options.replyTimeout);
-        const replyPromise = resolveOn(this, `reply:${packet.id()}`, timeout);
-        const cancelPromise = resolveOn(packet, 'cancel', timeout + 1);
-        const closePromise = resolveOn(this, 'close', timeout + 1);
-        const promise = Promise.race([
-            // Wait for replies to that packet ID:
-            replyPromise
-            .then((result: Reply) => {
+        const promise = new Promise((resolve, reject) => {
+            let timer: NodeJS.Timer;
+            let onReply: Function;
+            let onCancel: Function;
+            let onClose: Function;
+            onReply = (data: Reply) => {
                 this.queue.delete(packet);
 
-                if (result.error) {
-                    throw result.error;
-                }
+                clearTimeout(timer);
+                packet.removeListener('cancel', onCancel);
+                this.removeListener('close', onClose);
 
-                return result.result;
-            })
-            .catch(err => {
+                if (data.error) {
+                    reject(data.error);
+                } else {
+                    resolve(data.result);
+                }
+            };
+            onCancel = () => {
                 this.queue.delete(packet);
-                throw err;
-            }),
-            // Never resolve if the consumer cancels the packets:
-            cancelPromise
-            .then(() => {
-                throw new CancelledError();
-            }),
-            // Re-queue packets if the socket closes:
-            closePromise
-            .then(() => {
-                if (!this.queue.has(packet)) { // skip if we already resolved
-                    return null;
-                }
 
-                packet.setState(PacketState.Pending);
-                return this.send(packet);
-            }),
-        ]).then((val: any) => {
-            replyPromise.clear();
-            cancelPromise.clear();
-            closePromise.clear();
-            return val;
+                clearTimeout(timer);
+                this.removeListener(`reply:${packet.id()}`, onReply);
+                this.removeListener('close', onClose);
+                reject(new CancelledError());
+            };
+            onClose = () => {
+                clearTimeout(timer);
+                this.removeListener(`reply:${packet.id()}`, onReply);
+                packet.removeListener('cancel', onCancel);
+
+                reject(new CancelledError()); // if the connection is closed I want to cancel the event
+                /*if (this.queue.has(packet)) { // resend if packet is still in the queue
+                    packet.setState(PacketState.Pending);
+                    this.send(packet).then(
+                        (data) => { resolve(data); },
+                        (error) => { reject(error); }
+                    );
+                }*/
+            };
+            this.once(`reply:${packet.id()}`, onReply);
+            packet.once('cancel', onCancel);
+            this.once('close', onClose);
+
+            timer = setTimeout(
+                () => {
+                    this.removeListener(`reply:${packet.id()}`, onReply);
+                    packet.removeListener('cancel', onCancel);
+                    this.removeListener('close', onClose);
+                    reject(new TimeoutError(`Expected to get event reply:${packet.id()}`));
+                },
+                timeout);
         });
 
         packet.emit('send', promise);
