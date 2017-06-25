@@ -49,7 +49,7 @@ export class State extends EventEmitter implements IState {
 
     /**
      * Constructs a new State instance. Based on the passed client type it will
-     * hook into the apropriate methods for that type to keep itself up to date.
+     * hook into the appropriate methods for that type to keep itself up to date.
      */
     constructor(private clientType: ClientType) {
         super();
@@ -114,7 +114,7 @@ export class State extends EventEmitter implements IState {
     }
 
     /**
-     * Syncronize scenes takes a collection of scenes from the server
+     * Synchronize scenes takes a collection of scenes from the server
      * and hydrates the Scene store with them.
      */
     public synchronizeScenes(data: ISceneDataArray): IScene[] {
@@ -146,7 +146,7 @@ export class State extends EventEmitter implements IState {
         this.methodHandler.addHandler('onParticipantLeave', res => {
             res.params.participants.forEach(participant => {
                 this.participants.delete(participant.sessionID);
-                this.emit('participantLeave', participant.sessionID);
+                this.emit('participantLeave', participant.sessionID, participant);
             });
         });
 
@@ -187,7 +187,7 @@ export class State extends EventEmitter implements IState {
     }
 
     /**
-     * Returns the local time matched to the sync of the Beam server clock.
+     * Returns the local time matched to the sync of the Mixer server clock.
      */
     public synchronizeLocalTime(time: Date | number = Date.now()): Date {
         if (time instanceof Date) {
@@ -309,10 +309,24 @@ export class State extends EventEmitter implements IState {
     }
 
     /**
+     * Retrieve all groups.
+     */
+    public getGroups(): Map<string, Group> {
+        return this.groups;
+    }
+
+    /**
      * Retrieve a group with the matching ID from the group store.
      */
     public getGroup(id: string): Group {
         return this.groups.get(id);
+    }
+
+    /**
+     * Retrieve all scenes
+     */
+    public getScenes(): Map<string, Scene> {
+        return this.scenes;
     }
 
     /**
@@ -336,6 +350,13 @@ export class State extends EventEmitter implements IState {
         return result;
     }
 
+    /**
+     * Retrieve all participants.
+     */
+    public getParticipants(): Map<string, IParticipant> {
+        return this.participants;
+    }
+
     private getParticipantBy<K extends keyof IParticipant>(field: K, value: IParticipant[K]): IParticipant {
         let result;
         this.participants.forEach(participant => {
@@ -346,14 +367,14 @@ export class State extends EventEmitter implements IState {
         return result;
     }
     /**
-     * Retrieve a participant by their Beam UserId.
+     * Retrieve a participant by their Mixer UserId.
      */
     public getParticipantByUserID(id: number): IParticipant {
         return this.getParticipantBy('userID', id);
     }
 
     /**
-     * Retrieve a participant by their Beam Username.
+     * Retrieve a participant by their Mixer Username.
      */
     public getParticipantByUsername(name: string): IParticipant {
         return this.getParticipantBy('username', name);

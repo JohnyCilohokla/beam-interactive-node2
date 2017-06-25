@@ -2,12 +2,17 @@ import { EventEmitter } from 'events';
 
 import { ETag, IParticipant } from '../';
 import { IClient } from '../../../IClient';
-import { ISceneDataArray } from '../IScene';
 import { IInput, IInputEvent } from './IInput';
 import { IMeta } from './IMeta';
 
 export type ControlKind = 'button' | 'joystick';
 export type GridSize = 'large' | 'medium' | 'small';
+
+export interface IGridLayout {
+    readonly size: GridSize;
+    readonly width: number;
+    readonly height: number;
+}
 
 /**
  * Represents the raw data a control has when transmitted
@@ -40,6 +45,19 @@ export interface IControlData {
      */
     etag?: ETag;
 }
+
+/**
+ * Represents updatable components of a control which developers can update
+ * from game clients.
+ */
+export interface IControlUpdate {
+    /**
+     * When set to true this will disable the control.
+     * When set to false this will enable the control.
+     */
+    disabled?: boolean;
+}
+
 /**
  * Control is used a base class for all other controls within an interactive session.
  * It contains shared logic which all types of controls can utilize.
@@ -69,7 +87,12 @@ export interface IControl extends IControlData, EventEmitter {
     /**
      * Merges in updated control data from the mediator
      */
-    update(controlData: IControlData): void;
+    onUpdate(controlData: IControlData): void;
+
+    /**
+     * Updates the control with the supplied update parameters
+     */
+    update(controlUpdate: IControlUpdate): Promise<void>;
 
     /**
      * Fired when the control is deleted.
@@ -112,8 +135,4 @@ export interface IGridPlacement {
      * The Y position of this control within the grid.
      */
     y: number;
-}
-
-export interface IControlUpdate {
-    scenes: ISceneDataArray;
 }

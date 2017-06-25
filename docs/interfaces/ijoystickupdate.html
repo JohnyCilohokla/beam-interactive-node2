@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>IGameClientOptions | beam-interactive-node2</title>
+	<title>IJoystickUpdate | beam-interactive-node2</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -52,21 +52,34 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="igameclientoptions.html">IGameClientOptions</a>
+					<a href="ijoystickupdate.html">IJoystickUpdate</a>
 				</li>
 			</ul>
-			<h1>Interface IGameClientOptions</h1>
+			<h1>Interface IJoystickUpdate</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Represents updatable components of a joystick which developers can update
+						from game clients.</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">IGameClientOptions</span>
+						<a href="icontrolupdate.html" class="tsd-signature-type">IControlUpdate</a>
+						<ul class="tsd-hierarchy">
+							<li>
+								<span class="target">IJoystickUpdate</span>
+							</li>
+						</ul>
 					</li>
 				</ul>
 			</section>
@@ -77,9 +90,10 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="igameclientoptions.html#authtoken" class="tsd-kind-icon">auth<wbr>Token</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="igameclientoptions.html#discoveryurl" class="tsd-kind-icon">discovery<wbr>Url</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="igameclientoptions.html#versionid" class="tsd-kind-icon">version<wbr>Id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ijoystickupdate.html#angle" class="tsd-kind-icon">angle</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="ijoystickupdate.html#disabled" class="tsd-kind-icon">disabled</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ijoystickupdate.html#intensity" class="tsd-kind-icon">intensity</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ijoystickupdate.html#samplerate" class="tsd-kind-icon">sample<wbr>Rate</a></li>
 							</ul>
 						</section>
 					</div>
@@ -88,50 +102,67 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="authtoken" class="tsd-anchor"></a>
-					<h3>auth<wbr>Token</h3>
-					<div class="tsd-signature tsd-kind-icon">auth<wbr>Token<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="angle" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> angle</h3>
+					<div class="tsd-signature tsd-kind-icon">angle<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mixer/interactive-node/blob/cc845ed/src/GameClient.ts#L24">GameClient.ts:24</a></li>
+							<li>Defined in <a href="https://github.com/mixer/interactive-node/blob/cc845ed/src/state/interfaces/controls/IJoystick.ts#L36">state/interfaces/controls/IJoystick.ts:36</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>An OAuth Bearer token as defined in <a href="https://art.tools.ietf.org/html/rfc6750" class="external"> OAuth 2.0 Bearer Token Usage</a>.</p>
+							<p>Updates the angle of the Joysticks direction indicator.
+							In radians 0 - 2π.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+					<a name="disabled" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> disabled</h3>
+					<div class="tsd-signature tsd-kind-icon">disabled<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="icontrolupdate.html">IControlUpdate</a>.<a href="icontrolupdate.html#disabled">disabled</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/mixer/interactive-node/blob/cc845ed/src/state/interfaces/controls/IControl.ts#L52">state/interfaces/controls/IControl.ts:52</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>When set to true this will disable the control.
+							When set to false this will enable the control.</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="discoveryurl" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> discovery<wbr>Url</h3>
-					<div class="tsd-signature tsd-kind-icon">discovery<wbr>Url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="intensity" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> intensity</h3>
+					<div class="tsd-signature tsd-kind-icon">intensity<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mixer/interactive-node/blob/cc845ed/src/GameClient.ts#L30">GameClient.ts:30</a></li>
+							<li>Defined in <a href="https://github.com/mixer/interactive-node/blob/cc845ed/src/state/interfaces/controls/IJoystick.ts#L40">state/interfaces/controls/IJoystick.ts:40</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>A url which can be used to discover interactive servers.
-							Defaults to <a href="https://mixer.com/api/v1/interactive/hosts">https://mixer.com/api/v1/interactive/hosts</a></p>
+							<p>updates the strength/opacity of the direction indicator.</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="versionid" class="tsd-anchor"></a>
-					<h3>version<wbr>Id</h3>
-					<div class="tsd-signature tsd-kind-icon">version<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="samplerate" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> sample<wbr>Rate</h3>
+					<div class="tsd-signature tsd-kind-icon">sample<wbr>Rate<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mixer/interactive-node/blob/cc845ed/src/GameClient.ts#L20">GameClient.ts:20</a></li>
+							<li>Defined in <a href="https://github.com/mixer/interactive-node/blob/cc845ed/src/state/interfaces/controls/IJoystick.ts#L46">state/interfaces/controls/IJoystick.ts:46</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Your project version id is a unique id to your Interactive Project Version. You can retrieve one
-							from the Interactive Studio on Mixer.com in the Code step.</p>
+							<p>Updates the sampleRate of this joystick</p>
 						</div>
+						<p>In milliseconds.</p>
 					</div>
 				</section>
 			</section>
@@ -149,16 +180,19 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="igameclientoptions.html" class="tsd-kind-icon">IGame<wbr>Client<wbr>Options</a>
+						<a href="ijoystickupdate.html" class="tsd-kind-icon">IJoystick<wbr>Update</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="igameclientoptions.html#authtoken" class="tsd-kind-icon">auth<wbr>Token</a>
+								<a href="ijoystickupdate.html#angle" class="tsd-kind-icon">angle</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+								<a href="ijoystickupdate.html#disabled" class="tsd-kind-icon">disabled</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="igameclientoptions.html#discoveryurl" class="tsd-kind-icon">discovery<wbr>Url</a>
+								<a href="ijoystickupdate.html#intensity" class="tsd-kind-icon">intensity</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="igameclientoptions.html#versionid" class="tsd-kind-icon">version<wbr>Id</a>
+								<a href="ijoystickupdate.html#samplerate" class="tsd-kind-icon">sample<wbr>Rate</a>
 							</li>
 						</ul>
 					</li>

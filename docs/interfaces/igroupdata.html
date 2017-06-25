@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>IGameClientOptions | beam-interactive-node2</title>
+	<title>IGroupData | beam-interactive-node2</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -52,10 +52,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="igameclientoptions.html">IGameClientOptions</a>
+					<a href="igroupdata.html">IGroupData</a>
 				</li>
 			</ul>
-			<h1>Interface IGameClientOptions</h1>
+			<h1>Interface IGroupData</h1>
 		</div>
 	</div>
 </header>
@@ -66,7 +66,12 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">IGameClientOptions</span>
+						<span class="target">IGroupData</span>
+						<ul class="tsd-hierarchy">
+							<li>
+								<a href="igroup.html" class="tsd-signature-type">IGroup</a>
+							</li>
+						</ul>
 					</li>
 				</ul>
 			</section>
@@ -77,9 +82,10 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="igameclientoptions.html#authtoken" class="tsd-kind-icon">auth<wbr>Token</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="igameclientoptions.html#discoveryurl" class="tsd-kind-icon">discovery<wbr>Url</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="igameclientoptions.html#versionid" class="tsd-kind-icon">version<wbr>Id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="igroupdata.html#etag" class="tsd-kind-icon">etag</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="igroupdata.html#groupid" class="tsd-kind-icon">groupID</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="igroupdata.html#meta" class="tsd-kind-icon">meta</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="igroupdata.html#sceneid" class="tsd-kind-icon">sceneID</a></li>
 							</ul>
 						</section>
 					</div>
@@ -88,49 +94,62 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="authtoken" class="tsd-anchor"></a>
-					<h3>auth<wbr>Token</h3>
-					<div class="tsd-signature tsd-kind-icon">auth<wbr>Token<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="etag" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> etag</h3>
+					<div class="tsd-signature tsd-kind-icon">etag<span class="tsd-signature-symbol">:</span> <a href="../globals.html#etag" class="tsd-signature-type">ETag</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mixer/interactive-node/blob/cc845ed/src/GameClient.ts#L24">GameClient.ts:24</a></li>
+							<li>Defined in <a href="https://github.com/mixer/interactive-node/blob/cc845ed/src/state/interfaces/IGroup.ts#L33">state/interfaces/IGroup.ts:33</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>An OAuth Bearer token as defined in <a href="https://art.tools.ietf.org/html/rfc6750" class="external"> OAuth 2.0 Bearer Token Usage</a>.</p>
+							<p>The group&#39;s ETag.</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="discoveryurl" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> discovery<wbr>Url</h3>
-					<div class="tsd-signature tsd-kind-icon">discovery<wbr>Url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="groupid" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> groupID</h3>
+					<div class="tsd-signature tsd-kind-icon">groupID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mixer/interactive-node/blob/cc845ed/src/GameClient.ts#L30">GameClient.ts:30</a></li>
+							<li>Defined in <a href="https://github.com/mixer/interactive-node/blob/cc845ed/src/state/interfaces/IGroup.ts#L18">state/interfaces/IGroup.ts:18</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>A url which can be used to discover interactive servers.
-							Defaults to <a href="https://mixer.com/api/v1/interactive/hosts">https://mixer.com/api/v1/interactive/hosts</a></p>
+							<p>The ID of the group.</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="versionid" class="tsd-anchor"></a>
-					<h3>version<wbr>Id</h3>
-					<div class="tsd-signature tsd-kind-icon">version<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="meta" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> meta</h3>
+					<div class="tsd-signature tsd-kind-icon">meta<span class="tsd-signature-symbol">:</span> <a href="imeta.html" class="tsd-signature-type">IMeta</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mixer/interactive-node/blob/cc845ed/src/GameClient.ts#L20">GameClient.ts:20</a></li>
+							<li>Defined in <a href="https://github.com/mixer/interactive-node/blob/cc845ed/src/state/interfaces/IGroup.ts#L28">state/interfaces/IGroup.ts:28</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Your project version id is a unique id to your Interactive Project Version. You can retrieve one
-							from the Interactive Studio on Mixer.com in the Code step.</p>
+							<p>Metadata associated with the group.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="sceneid" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> sceneID</h3>
+					<div class="tsd-signature tsd-kind-icon">sceneID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/mixer/interactive-node/blob/cc845ed/src/state/interfaces/IGroup.ts#L23">state/interfaces/IGroup.ts:23</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The scene the group is currently assigned to.</p>
 						</div>
 					</div>
 				</section>
@@ -149,16 +168,19 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="igameclientoptions.html" class="tsd-kind-icon">IGame<wbr>Client<wbr>Options</a>
+						<a href="igroupdata.html" class="tsd-kind-icon">IGroup<wbr>Data</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="igameclientoptions.html#authtoken" class="tsd-kind-icon">auth<wbr>Token</a>
+								<a href="igroupdata.html#etag" class="tsd-kind-icon">etag</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="igameclientoptions.html#discoveryurl" class="tsd-kind-icon">discovery<wbr>Url</a>
+								<a href="igroupdata.html#groupid" class="tsd-kind-icon">groupID</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="igameclientoptions.html#versionid" class="tsd-kind-icon">version<wbr>Id</a>
+								<a href="igroupdata.html#meta" class="tsd-kind-icon">meta</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="igroupdata.html#sceneid" class="tsd-kind-icon">sceneID</a>
 							</li>
 						</ul>
 					</li>

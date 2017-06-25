@@ -12,7 +12,7 @@ import {
     setWebSocket,
 } from '../lib';
 
-if (process.argv.length < 5) {
+if (process.argv.length < 4) {
     console.log('Usage gameClient.exe <token> <versionId>');
     process.exit();
 }
@@ -96,7 +96,7 @@ client.open({
     * then call ready so our controls show up.
     * then call loop() to begin our loop.
     */
-    return client.synchronizeScenes();
+    return client.synchronizeState();
 })
 .then(() => client.ready(true))
 .then(() => loop());
@@ -104,7 +104,7 @@ client.open({
 client.state.on('participantJoin', (participant: IParticipant ) => {
     console.log(`${participant.username}(${participant.sessionID}) Joined`);
 });
-client.state.on('participantLeave', (participant: string ) => {
-    console.log(`${participant} Left`);
+client.state.on('participantLeave', (participantSessionID: string, participant: IParticipant ) => {
+    console.log(`${participant.username}(${participantSessionID}) Left`);
 });
 /* tslint:enable:no-console */

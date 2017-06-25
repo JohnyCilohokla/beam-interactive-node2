@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>IGameClientOptions | beam-interactive-node2</title>
+	<title>IButtonUpdate | beam-interactive-node2</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -52,21 +52,34 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="igameclientoptions.html">IGameClientOptions</a>
+					<a href="ibuttonupdate.html">IButtonUpdate</a>
 				</li>
 			</ul>
-			<h1>Interface IGameClientOptions</h1>
+			<h1>Interface IButtonUpdate</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Represents updatable components of a button which developers can update
+						from game clients.</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">IGameClientOptions</span>
+						<a href="icontrolupdate.html" class="tsd-signature-type">IControlUpdate</a>
+						<ul class="tsd-hierarchy">
+							<li>
+								<span class="target">IButtonUpdate</span>
+							</li>
+						</ul>
 					</li>
 				</ul>
 			</section>
@@ -77,9 +90,12 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="igameclientoptions.html#authtoken" class="tsd-kind-icon">auth<wbr>Token</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="igameclientoptions.html#discoveryurl" class="tsd-kind-icon">discovery<wbr>Url</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="igameclientoptions.html#versionid" class="tsd-kind-icon">version<wbr>Id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ibuttonupdate.html#cooldown" class="tsd-kind-icon">cooldown</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ibuttonupdate.html#cost" class="tsd-kind-icon">cost</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="ibuttonupdate.html#disabled" class="tsd-kind-icon">disabled</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ibuttonupdate.html#keycode" class="tsd-kind-icon">key<wbr>Code</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ibuttonupdate.html#progress" class="tsd-kind-icon">progress</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ibuttonupdate.html#text" class="tsd-kind-icon">text</a></li>
 							</ul>
 						</section>
 					</div>
@@ -88,49 +104,94 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="authtoken" class="tsd-anchor"></a>
-					<h3>auth<wbr>Token</h3>
-					<div class="tsd-signature tsd-kind-icon">auth<wbr>Token<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="cooldown" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> cooldown</h3>
+					<div class="tsd-signature tsd-kind-icon">cooldown<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mixer/interactive-node/blob/cc845ed/src/GameClient.ts#L24">GameClient.ts:24</a></li>
+							<li>Defined in <a href="https://github.com/mixer/interactive-node/blob/cc845ed/src/state/interfaces/controls/IButton.ts#L43">state/interfaces/controls/IButton.ts:43</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>An OAuth Bearer token as defined in <a href="https://art.tools.ietf.org/html/rfc6750" class="external"> OAuth 2.0 Bearer Token Usage</a>.</p>
+							<p>In milliseconds, will be converted to a unix timestamp of when this cooldown expires.</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="discoveryurl" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> discovery<wbr>Url</h3>
-					<div class="tsd-signature tsd-kind-icon">discovery<wbr>Url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="cost" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> cost</h3>
+					<div class="tsd-signature tsd-kind-icon">cost<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mixer/interactive-node/blob/cc845ed/src/GameClient.ts#L30">GameClient.ts:30</a></li>
+							<li>Defined in <a href="https://github.com/mixer/interactive-node/blob/cc845ed/src/state/interfaces/controls/IButton.ts#L47">state/interfaces/controls/IButton.ts:47</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>A url which can be used to discover interactive servers.
-							Defaults to <a href="https://mixer.com/api/v1/interactive/hosts">https://mixer.com/api/v1/interactive/hosts</a></p>
+							<p>Will update the spark cost of this button.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+					<a name="disabled" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> disabled</h3>
+					<div class="tsd-signature tsd-kind-icon">disabled<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="icontrolupdate.html">IControlUpdate</a>.<a href="icontrolupdate.html#disabled">disabled</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/mixer/interactive-node/blob/cc845ed/src/state/interfaces/controls/IControl.ts#L52">state/interfaces/controls/IControl.ts:52</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>When set to true this will disable the control.
+							When set to false this will enable the control.</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="versionid" class="tsd-anchor"></a>
-					<h3>version<wbr>Id</h3>
-					<div class="tsd-signature tsd-kind-icon">version<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="keycode" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> key<wbr>Code</h3>
+					<div class="tsd-signature tsd-kind-icon">key<wbr>Code<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mixer/interactive-node/blob/cc845ed/src/GameClient.ts#L20">GameClient.ts:20</a></li>
+							<li>Defined in <a href="https://github.com/mixer/interactive-node/blob/cc845ed/src/state/interfaces/controls/IButton.ts#L55">state/interfaces/controls/IButton.ts:55</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Your project version id is a unique id to your Interactive Project Version. You can retrieve one
-							from the Interactive Studio on Mixer.com in the Code step.</p>
+							<p>Will update the keycode used by participants for keyboard control.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="progress" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> progress</h3>
+					<div class="tsd-signature tsd-kind-icon">progress<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/mixer/interactive-node/blob/cc845ed/src/state/interfaces/controls/IButton.ts#L51">state/interfaces/controls/IButton.ts:51</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Will update the progress bar underneath the button. 0 - 1.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="text" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> text</h3>
+					<div class="tsd-signature tsd-kind-icon">text<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/mixer/interactive-node/blob/cc845ed/src/state/interfaces/controls/IButton.ts#L39">state/interfaces/controls/IButton.ts:39</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Will update the text of this button.</p>
 						</div>
 					</div>
 				</section>
@@ -149,16 +210,25 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="igameclientoptions.html" class="tsd-kind-icon">IGame<wbr>Client<wbr>Options</a>
+						<a href="ibuttonupdate.html" class="tsd-kind-icon">IButton<wbr>Update</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="igameclientoptions.html#authtoken" class="tsd-kind-icon">auth<wbr>Token</a>
+								<a href="ibuttonupdate.html#cooldown" class="tsd-kind-icon">cooldown</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="igameclientoptions.html#discoveryurl" class="tsd-kind-icon">discovery<wbr>Url</a>
+								<a href="ibuttonupdate.html#cost" class="tsd-kind-icon">cost</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+								<a href="ibuttonupdate.html#disabled" class="tsd-kind-icon">disabled</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="igameclientoptions.html#versionid" class="tsd-kind-icon">version<wbr>Id</a>
+								<a href="ibuttonupdate.html#keycode" class="tsd-kind-icon">key<wbr>Code</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="ibuttonupdate.html#progress" class="tsd-kind-icon">progress</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="ibuttonupdate.html#text" class="tsd-kind-icon">text</a>
 							</li>
 						</ul>
 					</li>

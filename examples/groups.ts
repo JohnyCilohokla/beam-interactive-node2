@@ -112,7 +112,7 @@ function createScenes(): Promise<ISceneDataArray> {
         sceneID: 'secondScene',
         controls: makeControls('second')
     };
-    
+
     return client.createScenes({
         scenes: [secondScene]
     });
@@ -138,7 +138,7 @@ function createGroups(): Promise<void> {
             sceneID: 'default'
         }
     );
-    
+
     return client
         // First update the default group
         .updateGroups({
@@ -160,17 +160,14 @@ function createGroups(): Promise<void> {
 
 // Now we open the connection passing in our authentication details and an experienceId.
 client
-    // Open the Beam client with command line args
+    // Open the Mixer interactive client with command line args
     .open({
         authToken: process.argv[2],
         versionId: parseInt(process.argv[3], 10),
     })
-    
-    // Pull the scenes from the interactive server
-    .then(() => client.synchronizeScenes())
 
-    // Pull the groups from the interactive server
-    .then(() => client.synchronizeGroups())
+    // Pull the scenes and groups from the interactive server
+    .then(() => client.synchronizeState())
 
     // Set the client as ready so that interactive controls show up
     .then(() => client.ready(true))
@@ -200,8 +197,8 @@ client.state.on('participantJoin', (participant: IParticipant ) => {
     }
 });
 
-client.state.on('participantLeave', (participant: string ) => {
-    console.log(`${participant} Left`);
-    removeParticipant(participant)
+client.state.on('participantLeave', (participantSessionID: string, participant: IParticipant ) => {
+    console.log(`${participant.username}(${participantSessionID}) Left`);
+    removeParticipant(participantSessionID)
 });
 /* tslint:enable:no-console */

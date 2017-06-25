@@ -117,11 +117,14 @@
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="state.html#eventnames" class="tsd-kind-icon">event<wbr>Names</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="state.html#getcontrol" class="tsd-kind-icon">get<wbr>Control</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="state.html#getgroup" class="tsd-kind-icon">get<wbr>Group</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="state.html#getgroups" class="tsd-kind-icon">get<wbr>Groups</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="state.html#getmaxlisteners" class="tsd-kind-icon">get<wbr>Max<wbr>Listeners</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="state.html#getparticipantbysessionid" class="tsd-kind-icon">get<wbr>Participant<wbr>BySessionID</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="state.html#getparticipantbyuserid" class="tsd-kind-icon">get<wbr>Participant<wbr>ByUserID</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="state.html#getparticipantbyusername" class="tsd-kind-icon">get<wbr>Participant<wbr>ByUsername</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="state.html#getparticipants" class="tsd-kind-icon">get<wbr>Participants</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="state.html#getscene" class="tsd-kind-icon">get<wbr>Scene</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="state.html#getscenes" class="tsd-kind-icon">get<wbr>Scenes</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="state.html#listenercount" class="tsd-kind-icon">listener<wbr>Count</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="state.html#listeners" class="tsd-kind-icon">listeners</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="state.html#on" class="tsd-kind-icon">on</a></li>
@@ -140,6 +143,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="state.html#reset" class="tsd-kind-icon">reset</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="state.html#setclient" class="tsd-kind-icon">set<wbr>Client</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="state.html#setmaxlisteners" class="tsd-kind-icon">set<wbr>Max<wbr>Listeners</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="state.html#synchronizegroups" class="tsd-kind-icon">synchronize<wbr>Groups</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="state.html#synchronizelocaltime" class="tsd-kind-icon">synchronize<wbr>Local<wbr>Time</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="state.html#synchronizeremotetime" class="tsd-kind-icon">synchronize<wbr>Remote<wbr>Time</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="state.html#synchronizescenes" class="tsd-kind-icon">synchronize<wbr>Scenes</a></li>
@@ -161,13 +165,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/WatchBeam/interactive-node/blob/5e0caac/src/state/State.ts#L48">state/State.ts:48</a></li>
+									<li>Defined in <a href="https://github.com/mixer/interactive-node/blob/cc845ed/src/state/State.ts#L48">state/State.ts:48</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Constructs a new State instance. Based on the passed client type it will
-									hook into the apropriate methods for that type to keep itself up to date.</p>
+									hook into the appropriate methods for that type to keep itself up to date.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -189,7 +193,7 @@
 					<div class="tsd-signature tsd-kind-icon">is<wbr>Ready<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/WatchBeam/interactive-node/blob/5e0caac/src/state/State.ts#L34">state/State.ts:34</a></li>
+							<li>Defined in <a href="https://github.com/mixer/interactive-node/blob/cc845ed/src/state/State.ts#L34">state/State.ts:34</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -206,7 +210,7 @@
 						<p>Implementation of <a href="../interfaces/istate.html">IState</a>.<a href="../interfaces/istate.html#defaultmaxlisteners">defaultMaxListeners</a></p>
 						<p>Inherited from EventEmitter.defaultMaxListeners</p>
 						<ul>
-							<li>Defined in D:/Documents/GitHub/beam/site/beam-interactive-node2/node_modules/@types/node/index.d.ts:606</li>
+							<li>Defined in external package @types/node/index.d.ts:614</li>
 						</ul>
 					</aside>
 				</section>
@@ -226,7 +230,7 @@
 								<p>Inherited from EventEmitter.addListener</p>
 								<p>Overrides EventEmitter.addListener</p>
 								<ul>
-									<li>Defined in D:/Documents/GitHub/beam/site/beam-interactive-node2/node_modules/@types/node/index.d.ts:608</li>
+									<li>Defined in external package @types/node/index.d.ts:616</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -252,7 +256,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/WatchBeam/interactive-node/blob/5e0caac/src/state/State.ts#L263">state/State.ts:263</a></li>
+									<li>Defined in <a href="https://github.com/mixer/interactive-node/blob/cc845ed/src/state/State.ts#L267">state/State.ts:267</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -283,7 +287,7 @@
 								<p>Inherited from EventEmitter.emit</p>
 								<p>Overrides EventEmitter.emit</p>
 								<ul>
-									<li>Defined in D:/Documents/GitHub/beam/site/beam-interactive-node2/node_modules/@types/node/index.d.ts:618</li>
+									<li>Defined in external package @types/node/index.d.ts:626</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -312,7 +316,7 @@
 								<p>Inherited from EventEmitter.eventNames</p>
 								<p>Overrides EventEmitter.eventNames</p>
 								<ul>
-									<li>Defined in D:/Documents/GitHub/beam/site/beam-interactive-node2/node_modules/@types/node/index.d.ts:619</li>
+									<li>Defined in external package @types/node/index.d.ts:627</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns             <span class="tsd-signature-symbol">(</span>
@@ -336,7 +340,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/istate.html">IState</a>.<a href="../interfaces/istate.html#getcontrol">getControl</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/WatchBeam/interactive-node/blob/5e0caac/src/state/State.ts#L324">state/State.ts:324</a></li>
+									<li>Defined in <a href="https://github.com/mixer/interactive-node/blob/cc845ed/src/state/State.ts#L342">state/State.ts:342</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -365,7 +369,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/istate.html">IState</a>.<a href="../interfaces/istate.html#getgroup">getGroup</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/WatchBeam/interactive-node/blob/5e0caac/src/state/State.ts#L310">state/State.ts:310</a></li>
+									<li>Defined in <a href="https://github.com/mixer/interactive-node/blob/cc845ed/src/state/State.ts#L321">state/State.ts:321</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -383,6 +387,29 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getgroups" class="tsd-anchor"></a>
+					<h3>get<wbr>Groups</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Groups<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="group.html" class="tsd-signature-type">Group</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/istate.html">IState</a>.<a href="../interfaces/istate.html#getgroups">getGroups</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/mixer/interactive-node/blob/cc845ed/src/state/State.ts#L314">state/State.ts:314</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Retrieve all groups.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="group.html" class="tsd-signature-type">Group</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 					<a name="getmaxlisteners" class="tsd-anchor"></a>
 					<h3>get<wbr>Max<wbr>Listeners</h3>
@@ -396,7 +423,7 @@
 								<p>Inherited from EventEmitter.getMaxListeners</p>
 								<p>Overrides EventEmitter.getMaxListeners</p>
 								<ul>
-									<li>Defined in D:/Documents/GitHub/beam/site/beam-interactive-node2/node_modules/@types/node/index.d.ts:616</li>
+									<li>Defined in external package @types/node/index.d.ts:624</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -414,7 +441,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/istate.html">IState</a>.<a href="../interfaces/istate.html#getparticipantbysessionid">getParticipantBySessionID</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/WatchBeam/interactive-node/blob/5e0caac/src/state/State.ts#L360">state/State.ts:360</a></li>
+									<li>Defined in <a href="https://github.com/mixer/interactive-node/blob/cc845ed/src/state/State.ts#L385">state/State.ts:385</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -443,12 +470,12 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/istate.html">IState</a>.<a href="../interfaces/istate.html#getparticipantbyuserid">getParticipantByUserID</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/WatchBeam/interactive-node/blob/5e0caac/src/state/State.ts#L347">state/State.ts:347</a></li>
+									<li>Defined in <a href="https://github.com/mixer/interactive-node/blob/cc845ed/src/state/State.ts#L372">state/State.ts:372</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Retrieve a participant by their Beam UserId.</p>
+									<p>Retrieve a participant by their Mixer UserId.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -472,12 +499,12 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/istate.html">IState</a>.<a href="../interfaces/istate.html#getparticipantbyusername">getParticipantByUsername</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/WatchBeam/interactive-node/blob/5e0caac/src/state/State.ts#L354">state/State.ts:354</a></li>
+									<li>Defined in <a href="https://github.com/mixer/interactive-node/blob/cc845ed/src/state/State.ts#L379">state/State.ts:379</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Retrieve a participant by their Beam Username.</p>
+									<p>Retrieve a participant by their Mixer Username.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -487,6 +514,29 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/iparticipant.html" class="tsd-signature-type">IParticipant</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getparticipants" class="tsd-anchor"></a>
+					<h3>get<wbr>Participants</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Participants<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/iparticipant.html" class="tsd-signature-type">IParticipant</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/istate.html">IState</a>.<a href="../interfaces/istate.html#getparticipants">getParticipants</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/mixer/interactive-node/blob/cc845ed/src/state/State.ts#L356">state/State.ts:356</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Retrieve all participants.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/iparticipant.html" class="tsd-signature-type">IParticipant</a><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -501,7 +551,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/istate.html">IState</a>.<a href="../interfaces/istate.html#getscene">getScene</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/WatchBeam/interactive-node/blob/5e0caac/src/state/State.ts#L317">state/State.ts:317</a></li>
+									<li>Defined in <a href="https://github.com/mixer/interactive-node/blob/cc845ed/src/state/State.ts#L335">state/State.ts:335</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -519,6 +569,29 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getscenes" class="tsd-anchor"></a>
+					<h3>get<wbr>Scenes</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Scenes<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="scene.html" class="tsd-signature-type">Scene</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/istate.html">IState</a>.<a href="../interfaces/istate.html#getscenes">getScenes</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/mixer/interactive-node/blob/cc845ed/src/state/State.ts#L328">state/State.ts:328</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Retrieve all scenes</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="scene.html" class="tsd-signature-type">Scene</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 					<a name="listenercount" class="tsd-anchor"></a>
 					<h3>listener<wbr>Count</h3>
@@ -532,7 +605,7 @@
 								<p>Inherited from EventEmitter.listenerCount</p>
 								<p>Overrides EventEmitter.listenerCount</p>
 								<ul>
-									<li>Defined in D:/Documents/GitHub/beam/site/beam-interactive-node2/node_modules/@types/node/index.d.ts:620</li>
+									<li>Defined in external package @types/node/index.d.ts:628</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -558,7 +631,7 @@
 								<p>Inherited from EventEmitter.listeners</p>
 								<p>Overrides EventEmitter.listeners</p>
 								<ul>
-									<li>Defined in D:/Documents/GitHub/beam/site/beam-interactive-node2/node_modules/@types/node/index.d.ts:617</li>
+									<li>Defined in external package @types/node/index.d.ts:625</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -583,7 +656,7 @@
 								<p>Inherited from EventEmitter.on</p>
 								<p>Overrides EventEmitter.on</p>
 								<ul>
-									<li>Defined in D:/Documents/GitHub/beam/site/beam-interactive-node2/node_modules/@types/node/index.d.ts:609</li>
+									<li>Defined in external package @types/node/index.d.ts:617</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -603,13 +676,13 @@
 					<a name="ongroupcreate" class="tsd-anchor"></a>
 					<h3>on<wbr>Group<wbr>Create</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">on<wbr>Group<wbr>Create<span class="tsd-signature-symbol">(</span>data<span class="tsd-signature-symbol">: </span><a href="../interfaces/igroup.html" class="tsd-signature-type">IGroup</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="group.html" class="tsd-signature-type">Group</a></li>
+						<li class="tsd-signature tsd-kind-icon">on<wbr>Group<wbr>Create<span class="tsd-signature-symbol">(</span>data<span class="tsd-signature-symbol">: </span><a href="../interfaces/igroupdata.html" class="tsd-signature-type">IGroupData</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="group.html" class="tsd-signature-type">Group</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/WatchBeam/interactive-node/blob/5e0caac/src/state/State.ts#L292">state/State.ts:292</a></li>
+									<li>Defined in <a href="https://github.com/mixer/interactive-node/blob/cc845ed/src/state/State.ts#L296">state/State.ts:296</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -620,7 +693,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>data: <a href="../interfaces/igroup.html" class="tsd-signature-type">IGroup</a></h5>
+									<h5>data: <a href="../interfaces/igroupdata.html" class="tsd-signature-type">IGroupData</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="group.html" class="tsd-signature-type">Group</a></h4>
@@ -637,7 +710,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/WatchBeam/interactive-node/blob/5e0caac/src/state/State.ts#L280">state/State.ts:280</a></li>
+									<li>Defined in <a href="https://github.com/mixer/interactive-node/blob/cc845ed/src/state/State.ts#L284">state/State.ts:284</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -662,13 +735,13 @@
 					<a name="ongroupupdate" class="tsd-anchor"></a>
 					<h3>on<wbr>Group<wbr>Update</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">on<wbr>Group<wbr>Update<span class="tsd-signature-symbol">(</span>group<span class="tsd-signature-symbol">: </span><a href="../interfaces/igroup.html" class="tsd-signature-type">IGroup</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<wbr>Group<wbr>Update<span class="tsd-signature-symbol">(</span>group<span class="tsd-signature-symbol">: </span><a href="../interfaces/igroupdata.html" class="tsd-signature-type">IGroupData</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/WatchBeam/interactive-node/blob/5e0caac/src/state/State.ts#L270">state/State.ts:270</a></li>
+									<li>Defined in <a href="https://github.com/mixer/interactive-node/blob/cc845ed/src/state/State.ts#L274">state/State.ts:274</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -679,7 +752,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>group: <a href="../interfaces/igroup.html" class="tsd-signature-type">IGroup</a></h5>
+									<h5>group: <a href="../interfaces/igroupdata.html" class="tsd-signature-type">IGroupData</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -697,7 +770,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/istate.html">IState</a>.<a href="../interfaces/istate.html#onscenecreate">onSceneCreate</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/WatchBeam/interactive-node/blob/5e0caac/src/state/State.ts#L242">state/State.ts:242</a></li>
+									<li>Defined in <a href="https://github.com/mixer/interactive-node/blob/cc845ed/src/state/State.ts#L246">state/State.ts:246</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -725,7 +798,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/WatchBeam/interactive-node/blob/5e0caac/src/state/State.ts#L230">state/State.ts:230</a></li>
+									<li>Defined in <a href="https://github.com/mixer/interactive-node/blob/cc845ed/src/state/State.ts#L234">state/State.ts:234</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -756,7 +829,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/WatchBeam/interactive-node/blob/5e0caac/src/state/State.ts#L220">state/State.ts:220</a></li>
+									<li>Defined in <a href="https://github.com/mixer/interactive-node/blob/cc845ed/src/state/State.ts#L224">state/State.ts:224</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -787,7 +860,7 @@
 								<p>Inherited from EventEmitter.once</p>
 								<p>Overrides EventEmitter.once</p>
 								<ul>
-									<li>Defined in D:/Documents/GitHub/beam/site/beam-interactive-node2/node_modules/@types/node/index.d.ts:610</li>
+									<li>Defined in external package @types/node/index.d.ts:618</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -816,7 +889,7 @@
 								<p>Inherited from EventEmitter.prependListener</p>
 								<p>Overrides EventEmitter.prependListener</p>
 								<ul>
-									<li>Defined in D:/Documents/GitHub/beam/site/beam-interactive-node2/node_modules/@types/node/index.d.ts:611</li>
+									<li>Defined in external package @types/node/index.d.ts:619</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -845,7 +918,7 @@
 								<p>Inherited from EventEmitter.prependOnceListener</p>
 								<p>Overrides EventEmitter.prependOnceListener</p>
 								<ul>
-									<li>Defined in D:/Documents/GitHub/beam/site/beam-interactive-node2/node_modules/@types/node/index.d.ts:612</li>
+									<li>Defined in external package @types/node/index.d.ts:620</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -872,7 +945,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/istate.html">IState</a>.<a href="../interfaces/istate.html#processmethod">processMethod</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/WatchBeam/interactive-node/blob/5e0caac/src/state/State.ts#L174">state/State.ts:174</a></li>
+									<li>Defined in <a href="https://github.com/mixer/interactive-node/blob/cc845ed/src/state/State.ts#L178">state/State.ts:178</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -906,7 +979,7 @@
 								<p>Inherited from EventEmitter.removeAllListeners</p>
 								<p>Overrides EventEmitter.removeAllListeners</p>
 								<ul>
-									<li>Defined in D:/Documents/GitHub/beam/site/beam-interactive-node2/node_modules/@types/node/index.d.ts:614</li>
+									<li>Defined in external package @types/node/index.d.ts:622</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -932,7 +1005,7 @@
 								<p>Inherited from EventEmitter.removeListener</p>
 								<p>Overrides EventEmitter.removeListener</p>
 								<ul>
-									<li>Defined in D:/Documents/GitHub/beam/site/beam-interactive-node2/node_modules/@types/node/index.d.ts:613</li>
+									<li>Defined in external package @types/node/index.d.ts:621</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -959,7 +1032,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/istate.html">IState</a>.<a href="../interfaces/istate.html#reset">reset</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/WatchBeam/interactive-node/blob/5e0caac/src/state/State.ts#L208">state/State.ts:208</a></li>
+									<li>Defined in <a href="https://github.com/mixer/interactive-node/blob/cc845ed/src/state/State.ts#L212">state/State.ts:212</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -982,7 +1055,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/istate.html">IState</a>.<a href="../interfaces/istate.html#setclient">setClient</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/WatchBeam/interactive-node/blob/5e0caac/src/state/State.ts#L164">state/State.ts:164</a></li>
+									<li>Defined in <a href="https://github.com/mixer/interactive-node/blob/cc845ed/src/state/State.ts#L168">state/State.ts:168</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1008,7 +1081,7 @@
 								<p>Inherited from EventEmitter.setMaxListeners</p>
 								<p>Overrides EventEmitter.setMaxListeners</p>
 								<ul>
-									<li>Defined in D:/Documents/GitHub/beam/site/beam-interactive-node2/node_modules/@types/node/index.d.ts:615</li>
+									<li>Defined in external package @types/node/index.d.ts:623</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1018,6 +1091,30 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="synchronizegroups" class="tsd-anchor"></a>
+					<h3>synchronize<wbr>Groups</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">synchronize<wbr>Groups<span class="tsd-signature-symbol">(</span>data<span class="tsd-signature-symbol">: </span><a href="../interfaces/igroupdataarray.html" class="tsd-signature-type">IGroupDataArray</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/igroup.html" class="tsd-signature-type">IGroup</a><span class="tsd-signature-symbol">[]</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/istate.html">IState</a>.<a href="../interfaces/istate.html#synchronizegroups">synchronizeGroups</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/mixer/interactive-node/blob/cc845ed/src/state/State.ts#L124">state/State.ts:124</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>data: <a href="../interfaces/igroupdataarray.html" class="tsd-signature-type">IGroupDataArray</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/igroup.html" class="tsd-signature-type">IGroup</a><span class="tsd-signature-symbol">[]</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -1032,12 +1129,12 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/istate.html">IState</a>.<a href="../interfaces/istate.html#synchronizelocaltime">synchronizeLocalTime</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/WatchBeam/interactive-node/blob/5e0caac/src/state/State.ts#L188">state/State.ts:188</a></li>
+									<li>Defined in <a href="https://github.com/mixer/interactive-node/blob/cc845ed/src/state/State.ts#L192">state/State.ts:192</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns the local time matched to the sync of the Beam server clock.</p>
+									<p>Returns the local time matched to the sync of the Mixer server clock.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1061,7 +1158,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/istate.html">IState</a>.<a href="../interfaces/istate.html#synchronizeremotetime">synchronizeRemoteTime</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/WatchBeam/interactive-node/blob/5e0caac/src/state/State.ts#L198">state/State.ts:198</a></li>
+									<li>Defined in <a href="https://github.com/mixer/interactive-node/blob/cc845ed/src/state/State.ts#L202">state/State.ts:202</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1090,12 +1187,12 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/istate.html">IState</a>.<a href="../interfaces/istate.html#synchronizescenes">synchronizeScenes</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/WatchBeam/interactive-node/blob/5e0caac/src/state/State.ts#L120">state/State.ts:120</a></li>
+									<li>Defined in <a href="https://github.com/mixer/interactive-node/blob/cc845ed/src/state/State.ts#L120">state/State.ts:120</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Syncronize scenes takes a collection of scenes from the server
+									<p>Synchronize scenes takes a collection of scenes from the server
 									and hydrates the Scene store with them.</p>
 								</div>
 							</div>
@@ -1121,7 +1218,7 @@
 								<p>Implementation of <a href="../interfaces/istate.html">IState</a>.<a href="../interfaces/istate.html#listenercount-1">listenerCount</a></p>
 								<p>Inherited from EventEmitter.listenerCount</p>
 								<ul>
-									<li>Defined in D:/Documents/GitHub/beam/site/beam-interactive-node2/node_modules/@types/node/index.d.ts:605</li>
+									<li>Defined in external package @types/node/index.d.ts:613</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1181,6 +1278,9 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="state.html#getgroup" class="tsd-kind-icon">get<wbr>Group</a>
 							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="state.html#getgroups" class="tsd-kind-icon">get<wbr>Groups</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 								<a href="state.html#getmaxlisteners" class="tsd-kind-icon">get<wbr>Max<wbr>Listeners</a>
 							</li>
@@ -1194,7 +1294,13 @@
 								<a href="state.html#getparticipantbyusername" class="tsd-kind-icon">get<wbr>Participant<wbr>ByUsername</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="state.html#getparticipants" class="tsd-kind-icon">get<wbr>Participants</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="state.html#getscene" class="tsd-kind-icon">get<wbr>Scene</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="state.html#getscenes" class="tsd-kind-icon">get<wbr>Scenes</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 								<a href="state.html#listenercount" class="tsd-kind-icon">listener<wbr>Count</a>
@@ -1249,6 +1355,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 								<a href="state.html#setmaxlisteners" class="tsd-kind-icon">set<wbr>Max<wbr>Listeners</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="state.html#synchronizegroups" class="tsd-kind-icon">synchronize<wbr>Groups</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="state.html#synchronizelocaltime" class="tsd-kind-icon">synchronize<wbr>Local<wbr>Time</a>

@@ -6,10 +6,11 @@ import {
     IButton,
     IButtonData,
     IControlData,
+    IParticipant,
     setWebSocket,
 } from '../lib';
 
-if (process.argv.length < 5) {
+if (process.argv.length < 4) {
     console.log('Usage gameClient.exe <token> <url> <experienceId>');
     process.exit();
 }
@@ -71,7 +72,6 @@ function makeControls(amount: number): IControlData[] {
 // Now we open the connection passing in our authentication details and an experienceId.
 client.open({
     authToken: process.argv[2],
-    url: process.argv[3],
     versionId: parseInt(process.argv[4], 10),
 })
 .then(() => {
@@ -112,7 +112,7 @@ client.open({
 client.state.on('participantJoin', participant => {
     console.log(`${participant.username}(${participant.sessionID}) Joined`);
 });
-client.state.on('participantLeave', (participant: string ) => {
-    console.log(`${participant} Left`);
+client.state.on('participantLeave', (participantSessionID: string, participant: IParticipant ) => {
+    console.log(`${participant.username}(${participantSessionID}) Left`);
 });
 /* tslint:enable:no-console */

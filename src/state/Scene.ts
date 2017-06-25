@@ -82,7 +82,7 @@ export class Scene extends EventEmitter implements IScene {
     private onControlUpdated(controlData: IControlData) {
         const control = this.getControl(controlData.controlID);
         if (control) {
-            control.update(controlData);
+            control.onUpdate(controlData);
         }
     }
     /**
@@ -119,6 +119,13 @@ export class Scene extends EventEmitter implements IScene {
      */
     public createControls(controls: IControlData[]): Promise<IControl[]> {
         return this.client.createControls({sceneID: this.sceneID, controls});
+    }
+
+    /**
+     * Updates a collection of controls in this scene, sending it to the server.
+     */
+    public updateControls(controls: IControlData[]): Promise<void> {
+        return this.client.updateControls({sceneID: this.sceneID, controls});
     }
 
     /**

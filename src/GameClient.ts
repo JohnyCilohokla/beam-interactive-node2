@@ -8,23 +8,26 @@ import {
     ISceneControlDeletion,
     ISceneData,
     ISceneDataArray,
+    ISceneDeletionParams,
 } from './state/interfaces';
 import { IControl } from './state/interfaces/controls/IControl';
 
 export interface IGameClientOptions {
     /**
      * Your project version id is a unique id to your Interactive Project Version. You can retrieve one
-     * from the Interactive Studio on Beam.pro in the Code step.
+     * from the Interactive Studio on Mixer.com in the Code step.
      */
     versionId: number;
     /**
      * An OAuth Bearer token as defined in {@link https://art.tools.ietf.org/html/rfc6750| OAuth 2.0 Bearer Token Usage}.
      */
     authToken: string;
+
     /**
-     * An interactive server url, these should be retrieved from https://beam.pro/api/v1/interactive/hosts.
+     * A url which can be used to discover interactive servers.
+     * Defaults to https://mixer.com/api/v1/interactive/hosts
      */
-    url?: string;
+    discoveryUrl?: string;
 }
 
 export class GameClient extends Client {
@@ -37,7 +40,7 @@ export class GameClient extends Client {
      */
     public open(options: IGameClientOptions): Promise<this> {
         return this.discovery
-        .retrieveEndpoints()
+        .retrieveEndpoints(options.discoveryUrl)
         .then(endpoints => {
             return super.open({
                 authToken: options.authToken,
@@ -70,6 +73,16 @@ export class GameClient extends Client {
      */
     public createGroups(groups: IGroupDataArray): Promise<IGroupDataArray> {
         return this.execute('createGroups', groups, false);
+    }
+
+    /**
+     * Instructs the server to create a new scene with the specified parameters.
+     */
+    public createScene(scene: ISceneData): Promise<ISceneData> {
+        return this.createScenes({ scenes: [ scene ] })
+        .then(scenes => {
+            return scenes.scenes[0];
+        });
     }
 
     /**
@@ -141,5 +154,12 @@ export class GameClient extends Client {
      */
     public deleteGroup(data: IGroupDeletionParams): Promise<void> {
         return this.execute('deleteGroup', data, false);
+    }
+
+    /**
+     * Instructs the server to delete the provided scene.
+     */
+    public deleteScene(data: ISceneDeletionParams): Promise<void> {
+        return this.execute('deleteScene', data, false);
     }
 }
