@@ -51,3 +51,6 @@ wallaby.js
 
 # Prefer to compile these
 examples/**/*.js
+/yarn.lock
+
+docs
