@@ -1,9 +1,8 @@
 import { EventEmitter } from 'events';
 import * as Url from 'url';
 
-import { CancelledError, InteractiveError, MessageParseError } from '../errors';
+import { CancelledError, InteractiveError, MessageParseError, TimeoutError } from '../errors';
 import { IRawValues } from '../interfaces';
-import { resolveOn } from '../util';
 import { Method, Packet, PacketState, Reply } from './packets';
 import {
     ExponentialReconnectionPolicy,
